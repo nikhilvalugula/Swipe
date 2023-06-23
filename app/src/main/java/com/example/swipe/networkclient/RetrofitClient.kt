@@ -32,13 +32,15 @@ interface RetrofitClient {
 
     companion object {
 
-        var retrofitClient: RetrofitClient? = null
+        private const val BASE_URL = "https://app.getswipe.in/api/public/"
+
+        private var retrofitClient: RetrofitClient? = null
 
         fun getInstance(): RetrofitClient {
 
             if (retrofitClient == null) {
                 val retrofit = Retrofit.Builder()
-                    .baseUrl("https://app.getswipe.in/api/public/")
+                    .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
                 retrofitClient = retrofit.create(RetrofitClient::class.java)
