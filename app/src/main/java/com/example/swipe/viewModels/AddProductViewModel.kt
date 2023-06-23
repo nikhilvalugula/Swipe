@@ -5,7 +5,7 @@ import com.example.swipe.repo.AddProductsRepo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class AddProductViewModel(var repo: AddProductsRepo) : ViewModel() {
+class AddProductViewModel(private var repo: AddProductsRepo) : ViewModel() {
 
     suspend fun pushPosts(
         productName: String,

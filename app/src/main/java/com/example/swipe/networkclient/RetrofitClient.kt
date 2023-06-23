@@ -2,7 +2,6 @@ package com.example.swipe.networkclient
 
 import com.example.swipe.db.ProductDataItem
 import com.example.swipe.db.PushResponse
-import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -33,18 +32,18 @@ interface RetrofitClient {
 
     companion object {
 
-        var myAPi: RetrofitClient? = null
+        var retrofitClient: RetrofitClient? = null
 
         fun getInstance(): RetrofitClient {
 
-            if (myAPi == null) {
+            if (retrofitClient == null) {
                 val retrofit = Retrofit.Builder()
                     .baseUrl("https://app.getswipe.in/api/public/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
-                myAPi = retrofit.create(RetrofitClient::class.java)
+                retrofitClient = retrofit.create(RetrofitClient::class.java)
             }
-            return myAPi!!
+            return retrofitClient!!
         }
     }
 }

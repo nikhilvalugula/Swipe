@@ -8,6 +8,7 @@ import com.example.swipe.networkclient.SafeApiRequest
 
 class ViewProductsRepo(private var api: RetrofitClient) : SafeApiRequest() {
 
+    //this method is used to fetch the products from api using apiRequest method
     suspend fun fetchAllProducts(): LiveData<List<ProductDataItem>> {
         val response = apiRequest { api.fetchProducts() }
         return MutableLiveData(response)

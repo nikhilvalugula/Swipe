@@ -64,6 +64,7 @@ class AddProductFragment : Fragment() {
         }
     }
 
+    //This method is used to post the details of products while add button is clicked.x
     private fun pushProductDetails() {
         val productName = binding.productName.text.toString().trim()
         val productPrice = binding.productPrice.text.toString().trim()

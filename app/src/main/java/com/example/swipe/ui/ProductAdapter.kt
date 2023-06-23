@@ -22,6 +22,7 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() 
     override fun getItemCount(): Int = products.size
 
 
+    //here we add the product list to products variable
     @SuppressLint("NotifyDataSetChanged")
     fun setData(productsList:List<ProductDataItem>){
         products.addAll(productsList)
@@ -47,7 +48,5 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() 
                 .fitCenter()
                 .into(binding.productImage)
         }
-
     }
-
 }

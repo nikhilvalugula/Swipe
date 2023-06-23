@@ -24,15 +24,17 @@ import com.example.swipe.viewModels.ViewProductViewModelFactory
 
 class ViewProductFragment : Fragment() {
 
+    //binding variable
     private lateinit var binding: FragmentViewProductBinding
 
+    //adapter variable
     private var adapter = ProductAdapter()
 
     private var searchAadapter = SearchAdapter()
 
     private lateinit var model: ViewProductViewModel
 
-    private val myAPi = RetrofitClient.getInstance()
+    private val retrofitClient = RetrofitClient.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,7 +49,7 @@ class ViewProductFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         model = ViewModelProvider(
             this,
-            ViewProductViewModelFactory(ViewProductsRepo(myAPi))
+            ViewProductViewModelFactory(ViewProductsRepo(retrofitClient))
         )[ViewProductViewModel::class.java]
         setUpUi()
         binding.buttonAdd.setOnClickListener {
@@ -56,8 +58,9 @@ class ViewProductFragment : Fragment() {
         }
         setHasOptionsMenu(true)
     }
-
+    //this method is used to setup ui
     private fun setUpUi() {
+        //we don't need to set ui ion main thread so using coroutines
         Coroutines.main {
             binding.progressBar.visibility = View.VISIBLE
             binding.buttonAdd.visibility = View.INVISIBLE
@@ -80,6 +83,7 @@ class ViewProductFragment : Fragment() {
         }
     }
 
+    //this method is ues for setting recycler view
     private fun setUpRecyclerView(productDataItem: List<ProductDataItem>) {
         binding.apply {
             recyclerView1.visibility = View.VISIBLE
