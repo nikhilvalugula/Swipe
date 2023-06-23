@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">Swipe</string>
+    <string name="app_name">SwipeDemo</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Please Add Your Products</string>
+    <string name="product_name">Product name</string>
+    <string name="product_price">Product price</string>
+    <string name="product_type">Product type</string>
+    <string name="product_tax">Product tax</string>
+    <string name="add_product">Add product</string>
+    <string name="enter_product_name">Enter Your product Name</string>
+    <string name="enter_product_price">Enter Your Product Price</string>
+    <string name="enter_product_tax">Enter Your product tax</string>
+    <string name="select_product_type">Select your product type :</string>
+    <array name="product_type">
+        <item>Laptop</item>
+        <item>Tv</item>
+        <item>Mobile</item>
+        <item>washing machine</item>
+        <item>Tablet</item>
+    </array>
 </resources>
